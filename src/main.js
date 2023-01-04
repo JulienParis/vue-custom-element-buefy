@@ -38,7 +38,7 @@ Vue.use(vueCustomElement)
 
 // const options = { shadow: true }
 const options = {
-  shadow: true
+  // shadow: true
   // shadow: true,
   // beforeCreateVueInstance (root) {
   //   const rootNode = root.el.getRootNode()
