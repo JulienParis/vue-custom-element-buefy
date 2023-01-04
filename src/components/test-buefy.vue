@@ -2,12 +2,22 @@
   <div
     class="container">
     <!-- WIDGET -->
-    <div class="columns is-multiline">
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/buefy/dist/buefy.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@5.8.55/css/materialdesignicons.min.css">
+
+    <div class="columns is-multiline px-3">
       <div class="column is-12 has-text-centered">
         component <code>TestBuefy</code>
       </div>
       <div class="column is-4">
-        title : <code>{{ title }}</code>
+        <span class="bg-colored">
+          title :
+        </span>
+        <code>{{ title }}</code>
       </div>
       <div class="column is-4">
         <b-button
@@ -54,4 +64,11 @@ export default {
     }
   }
 }
+
+// <style>
+//   .bg-colored {
+//     background-color: green;
+//     color: white;
+//   }
+// </style>
 </script>

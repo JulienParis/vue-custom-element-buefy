@@ -7,13 +7,23 @@ import './registerServiceWorker'
 import { defaultStore } from './store'
 
 import Buefy from 'buefy'
-import 'buefy/dist/buefy.min.css'
-import '@mdi/font/css/materialdesignicons.min.css'
+/* eslint import/no-duplicates: off */
+// import 'buefy/dist/buefy.min.css'
+// import '@mdi/font/css/materialdesignicons.min.css'
+
+/* eslint import/no-webpack-loader-syntax: off */
+// import buefyCss from '!!raw-loader!buefy/dist/buefy.min.css'
+// import materialDesignFont from '!!raw-loader!@mdi/font/css/materialdesignicons.min.css'
+
+import VueApexCharts from 'vue-apexcharts'
 
 import TestBuefy from './components/test-buefy.vue'
 import TestBuefyBool from './components/test-buefy-bool.vue'
 
 Vue.config.productionTip = false
+
+// console.log('>>> buefyCss : ', buefyCss)
+// console.log('>>> materialDesignFont : ', materialDesignFont)
 
 // install CSS framework - Buefy
 Vue.use(Buefy, {
@@ -21,8 +31,8 @@ Vue.use(Buefy, {
 })
 
 // install ApexCharts
-// Vue.use(VueApexCharts)
-// Vue.component('ApexChart', VueApexCharts)
+Vue.use(VueApexCharts)
+Vue.component('ApexChart', VueApexCharts)
 
 // install Vuex (store)
 Vue.use(Vuex)
@@ -39,16 +49,17 @@ Vue.use(vueCustomElement)
 // const options = { shadow: true }
 const options = {
   // shadow: true
-  // shadow: true,
-  // beforeCreateVueInstance (root) {
-  //   const rootNode = root.el.getRootNode()
-  //   if (rootNode instanceof ShadowRoot) {
-  //     root.shadowRoot = rootNode
-  //   } else {
-  //     root.shadowRoot = document.head
-  //   }
-  //   return root
-  // }
+  shadow: true,
+  // shadowCss: `${buefyCss} ${materialDesignFont}`,
+  beforeCreateVueInstance (root) {
+    const rootNode = root.el.getRootNode()
+    if (rootNode instanceof ShadowRoot) {
+      root.shadowRoot = rootNode
+    } else {
+      root.shadowRoot = document.head
+    }
+    return root
+  }
 }
 // TestBuefy.buefy = buefy
 // TestBuefyBool.buefy = buefy
