@@ -29,10 +29,10 @@
           <span class="bg-colored">
             icon :
           </span>
-          <b-icon icon="home"/>
+          <b-icon :icon="bool ? 'home' : 'home-outline'"/>
         </div>
         <div class="column is-3">
-          <nestedComponent :icon="'github'"/>
+          <nestedComponent :icon="bool ? 'github' : 'gitlab'"/>
         </div>
       </div>
     </div>
