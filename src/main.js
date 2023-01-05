@@ -7,23 +7,29 @@ import './registerServiceWorker'
 import { defaultStore } from './store'
 
 import Buefy from 'buefy'
+// DEPRECATED > Those css imports are injected as <link> tags into <head> in index.html
 /* eslint import/no-duplicates: off */
 // import 'buefy/dist/buefy.min.css'
 // import '@mdi/font/css/materialdesignicons.min.css'
 
+// Import css as raw strings for further injection in options.shadowCss
 /* eslint import/no-webpack-loader-syntax: off */
-// import buefyCss from '!!raw-loader!buefy/dist/buefy.min.css'
-// import materialDesignFont from '!!raw-loader!@mdi/font/css/materialdesignicons.min.css'
+import initCss from '!!raw-loader!./styles/initialize.css'
+import buefyCss from '!!raw-loader!buefy/dist/buefy.min.css'
+import materialDesignFonts from '!!raw-loader!@mdi/font/css/materialdesignicons.min.css'
 
-import VueApexCharts from 'vue-apexcharts'
+// import VueApexCharts from 'vue-apexcharts'
 
 import TestBuefy from './components/test-buefy.vue'
 import TestBuefyBool from './components/test-buefy-bool.vue'
 
 Vue.config.productionTip = false
 
+console.log('>>> process.env : ', process.env)
+
+// console.log('>>> initCss : ', initCss)
 // console.log('>>> buefyCss : ', buefyCss)
-// console.log('>>> materialDesignFont : ', materialDesignFont)
+// console.log('>>> materialDesignFonts : ', materialDesignFonts)
 
 // install CSS framework - Buefy
 Vue.use(Buefy, {
@@ -31,8 +37,8 @@ Vue.use(Buefy, {
 })
 
 // install ApexCharts
-Vue.use(VueApexCharts)
-Vue.component('ApexChart', VueApexCharts)
+// Vue.use(VueApexCharts)
+// Vue.component('ApexChart', VueApexCharts)
 
 // install Vuex (store)
 Vue.use(Vuex)
@@ -50,7 +56,10 @@ Vue.use(vueCustomElement)
 const options = {
   // shadow: true
   shadow: true,
-  // shadowCss: `${buefyCss} ${materialDesignFont}`,
+  // shadowCss: `${buefyCss}`,
+  shadowCss: `${buefyCss} ${materialDesignFonts} ${initCss}`,
+  // shadowCss: `${buefyCss} ${materialDesignFonts}`,
+  // shadowCss: `${buefyCss} ${initCss}`,
   beforeCreateVueInstance (root) {
     const rootNode = root.el.getRootNode()
     if (rootNode instanceof ShadowRoot) {

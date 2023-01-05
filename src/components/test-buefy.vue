@@ -1,34 +1,35 @@
 <template>
-  <div
-    class="container">
+  <div class="widget-wrapper">
+    <!-- <link
+      rel="stylesheet"
+      href="https://unpkg.com/buefy/dist/buefy.min.css"> -->
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@5.8.55/css/materialdesignicons.min.css"> -->
     <!-- WIDGET -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/buefy/dist/buefy.min.css">
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@mdi/font@5.8.55/css/materialdesignicons.min.css">
-
-    <div class="columns is-multiline px-3">
-      <div class="column is-12 has-text-centered">
-        component <code>TestBuefy</code>
-      </div>
-      <div class="column is-4">
-        <span class="bg-colored">
-          title :
-        </span>
-        <code>{{ title }}</code>
-      </div>
-      <div class="column is-4">
-        <b-button
-          expanded
-          icon-left="cursor-default-click-outline"
-          @click="toggleBool">
-          Click Me
-        </b-button>
-      </div>
-      <div class="column is-4">
-        bool: <code>{{ bool }}</code>
+    <div
+      class="container">
+      <div class="columns is-multiline px-3">
+        <div class="column is-12 has-text-centered">
+          component : <code>TestBuefy</code>
+        </div>
+        <div class="column is-4">
+          <span class="bg-colored">
+            title :
+          </span>
+          <code>{{ title }}</code>
+        </div>
+        <div class="column is-4">
+          <b-button
+            expanded
+            icon-left="cursor-default-click-outline"
+            @click="toggleBool">
+            Click Me
+          </b-button>
+        </div>
+        <div class="column is-4">
+          bool : <code>{{ bool }}</code>
+        </div>
       </div>
     </div>
   </div>
@@ -37,9 +38,11 @@
 <script>
 
 import { mapActions } from 'vuex'
+import { mixinGlobal } from '@/mixins/global.js'
 
 export default {
   name: 'TestBuefy',
+  mixins: [mixinGlobal],
   props: {
     title: {
       default: 'test',
@@ -48,8 +51,13 @@ export default {
   },
   data () {
     return {
-      bool: false
+      bool: false,
+      customCssFile: 'styles/custom-css.css'
     }
+  },
+  mounted () {
+    console.log('\nTestBuefy > beforeCreate ...')
+    this.addStyle(this.customCssFile)
   },
   beforeMount () {
     this.toggleBool()
@@ -64,11 +72,4 @@ export default {
     }
   }
 }
-
-// <style>
-//   .bg-colored {
-//     background-color: green;
-//     color: white;
-//   }
-// </style>
 </script>
