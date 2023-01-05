@@ -27,6 +27,8 @@ In shadow mode the `scoped` styles usually used in Vue are useless : those style
 By the same trick we can inject the Material Design CSS file, but doing so the injected css still needs to load the fonts themselves from a public folder. 
 
 ```css
+/* From './node_modules/@mdi/font/css/materialdesignicons.css' file */
+
 @font-face {
   font-family: "Material Design Icons";
   src: url("../fonts/materialdesignicons-webfont.eot?v=6.6.96");
@@ -36,7 +38,24 @@ By the same trick we can inject the Material Design CSS file, but doing so the i
 }
 ```
 
-To serve those fonts we needed to copy the installed fonts from `./node_modules/@mdi/font/fonts` folder to `./public/fonts` folder.
+To serve these fonts we need to copy the installed fonts from `./node_modules/@mdi/font/fonts` folder to the `./public/fonts` folder.
+
+To automatize this operation we added a command at the beginning of the `serve` script :
+
+```json
+// package.json
+
+{
+  ...
+  "scripts": {
+    "serve": "cp -a ./node_modules/@mdi/font/fonts/. ./public/fonts && vue-cli-service serve",
+    "build": "cp -a ./node_modules/@mdi/font/fonts/. ./public/fonts && vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit",
+    "lint": "vue-cli-service lint"
+  },
+  ...
+}
+```
 
 ### References
 
