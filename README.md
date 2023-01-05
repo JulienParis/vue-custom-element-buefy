@@ -20,7 +20,23 @@ As the widgets are encapsulated in a `shadow-root` most of the buefy CSS only ap
 
 ### Vue and scoped styles in shadow mode
 
-In shadow mode the `scoped` styles usually used in Vue are useless : those styles are injected into the `<head>` tag, not reachable by the custom element within their `shadow-root`. To be able to apply different styles to specific components, even nested, we had to find a workaround : we created a `mixin` function available on all components (`this.addStyle(url)`) able to generate a `<link>` tag pointing to specific css files from a value in component's data, and adding this link to the component's parent `shadow-root`.
+In shadow mode the `scoped` styles usually used in Vue are useless : those styles are injected into the `<head>` tag, not reachable by the custom element within their `shadow-root`. To be able to apply different styles to specific components, even nested, we had to find a workaround : we created a `mixin` function available on all components (`this.addStyle(url)`) able to generate a `<link>` tag pointing to specific css files (in the public folder) from a value in component's data, and adding this link to the component's parent `shadow-root`.
+
+### Material Design fonts loading
+
+By the same trick we can inject the Material Design CSS file, but doing so the injected css still needs to load the fonts themselves from a public folder. 
+
+```css
+@font-face {
+  font-family: "Material Design Icons";
+  src: url("../fonts/materialdesignicons-webfont.eot?v=6.6.96");
+  src: url("../fonts/materialdesignicons-webfont.eot?#iefix&v=6.6.96") format("embedded-opentype"), url("../fonts/materialdesignicons-webfont.woff2?v=6.6.96") format("woff2"), url("../fonts/materialdesignicons-webfont.woff?v=6.6.96") format("woff"), url("../fonts/materialdesignicons-webfont.ttf?v=6.6.96") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+```
+
+To serve those fonts we needed to copy the installed fonts from `./node_modules/@mdi/font/fonts` folder to `./public/fonts` folder.
 
 ### References
 

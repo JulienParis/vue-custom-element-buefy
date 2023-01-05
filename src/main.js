@@ -16,7 +16,7 @@ import Buefy from 'buefy'
 /* eslint import/no-webpack-loader-syntax: off */
 import initCss from '!!raw-loader!./styles/initialize.css'
 import buefyCss from '!!raw-loader!buefy/dist/buefy.min.css'
-// import materialDesignFonts from '!!raw-loader!@mdi/font/css/materialdesignicons.min.css'
+import materialDesignFonts from '!!raw-loader!@mdi/font/css/materialdesignicons.min.css'
 
 import TestBuefy from './components/test-buefy.vue'
 import TestBuefyBool from './components/test-buefy-bool.vue'
@@ -26,8 +26,8 @@ Vue.config.productionTip = false
 console.log('>>> process.env : ', process.env)
 
 // console.log('>>> initCss : ', initCss)
-// console.log('>>> buefyCss : ', buefyCss)
-// console.log('>>> materialDesignFonts : ', materialDesignFonts)
+console.log('>>> buefyCss : ', buefyCss)
+console.log('>>> materialDesignFonts : ', materialDesignFonts)
 
 // install CSS framework - Buefy
 Vue.use(Buefy, {
@@ -51,9 +51,9 @@ const options = {
   // shadow: true
   shadow: true,
   // shadowCss: `${buefyCss}`,
-  // shadowCss: `${buefyCss} ${materialDesignFonts} ${initCss}`,
+  shadowCss: `${buefyCss} ${materialDesignFonts} ${initCss}`,
   // shadowCss: `${buefyCss} ${materialDesignFonts}`,
-  shadowCss: `${buefyCss} ${initCss}`,
+  // shadowCss: `${buefyCss} ${initCss}`,
   beforeCreateVueInstance (root) {
     const rootNode = root.el.getRootNode()
     if (rootNode instanceof ShadowRoot) {
