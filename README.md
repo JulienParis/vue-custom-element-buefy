@@ -29,6 +29,12 @@ In shadow mode the `scoped` styles usually used in Vue are useless : those style
 
 ---
 
+## Screenshot
+
+![screenshot](images/screenshot.png)
+
+---
+
 ## Project setup
 
 The current project is working with `npm 16.12.0` version
