@@ -3,9 +3,9 @@
     <!-- <link
       rel="stylesheet"
       href="https://unpkg.com/buefy/dist/buefy.min.css"> -->
-    <!-- <link
+    <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@mdi/font@5.8.55/css/materialdesignicons.min.css"> -->
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@5.8.55/css/materialdesignicons.min.css">
     <!-- WIDGET -->
     <div
       class="container">
@@ -24,7 +24,7 @@
             expanded
             icon-left="cursor-default-click-outline"
             @click="toggleBool">
-            Click Me
+            Toogle bool value
           </b-button>
         </div>
         <div class="column is-4">
