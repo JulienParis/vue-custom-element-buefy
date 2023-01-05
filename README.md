@@ -31,7 +31,7 @@ In shadow mode the `scoped` styles usually used in Vue are useless : those style
 
 ---
 
-## Running app
+## Running app [![Netlify Status](https://api.netlify.com/api/v1/badges/52118dbb-3180-4a94-97ec-0e60d7e4e5fd/deploy-status)](https://app.netlify.com/sites/test-vue-custom-element-with-buefy/deploys)
 
 URL : https://test-vue-custom-element-with-buefy.netlify.app
 
