@@ -27,7 +27,7 @@ In shadow mode the `scoped` styles usually used in Vue are useless : those style
 - [Import CSS styles as strings with `raw-loader` to `shadowCss`](https://github.com/karol-f/vue-custom-element/issues/268#issuecomment-1370864092)
 - [Inject CSS styles in `shadow-root` instead of `<head>` tag](https://stackoverflow.com/questions/65903965/inject-css-styles-inside-of-the-shadow-root-instead-of-the-head-tag-vue-js-w/72566855#72566855)
 - [vue-custom-element-shadow-examples](https://github.com/bryanvaz/vue-custom-element-shadow-examples) (with Vuetify)
-- [vue-custom-element example with Bootstrap](https://github.com/gihandilanka-github/vue-custom-component-with-bootstrap)
+- [vue-custom-element shadow DOM example with Bootstrap](https://github.com/gihandilanka-github/vue-custom-component-with-bootstrap)
 
 ---
 
