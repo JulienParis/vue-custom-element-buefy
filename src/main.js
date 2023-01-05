@@ -18,8 +18,6 @@ import initCss from '!!raw-loader!./styles/initialize.css'
 import buefyCss from '!!raw-loader!buefy/dist/buefy.min.css'
 import materialDesignFonts from '!!raw-loader!@mdi/font/css/materialdesignicons.min.css'
 
-// import VueApexCharts from 'vue-apexcharts'
-
 import TestBuefy from './components/test-buefy.vue'
 import TestBuefyBool from './components/test-buefy-bool.vue'
 
@@ -35,10 +33,6 @@ console.log('>>> process.env : ', process.env)
 Vue.use(Buefy, {
   defaultIconPack: 'mdi'
 })
-
-// install ApexCharts
-// Vue.use(VueApexCharts)
-// Vue.component('ApexChart', VueApexCharts)
 
 // install Vuex (store)
 Vue.use(Vuex)
@@ -70,8 +64,11 @@ const options = {
     return root
   }
 }
-// TestBuefy.buefy = buefy
-// TestBuefyBool.buefy = buefy
 
+Vue.customElement('test-buefy-no-shadow', TestBuefy, { shadow: false })
+Vue.customElement('test-buefy-no-css', TestBuefy, { shadow: true })
 Vue.customElement('test-buefy', TestBuefy, options)
+
+Vue.customElement('test-buefy-bool-no-shadow', TestBuefyBool, { shadow: false })
+Vue.customElement('test-buefy-bool-no-css', TestBuefyBool, { shadow: true })
 Vue.customElement('test-buefy-bool', TestBuefyBool, options)

@@ -1,16 +1,16 @@
 
 export const defaultStore = {
   state: {
-    boolean: undefined
+    boolean: false
   },
   mutations: {
-    setBoolean (state, bool) {
-      state.boolean = bool
+    changeBoolean (state) {
+      state.boolean = !state.boolean
     }
   },
   actions: {
-    setBool ({ commit }, bool) {
-      commit('setBoolean', bool)
+    changeBool ({ commit }) {
+      commit('changeBoolean')
     }
   }
 }

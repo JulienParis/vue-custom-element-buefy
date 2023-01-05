@@ -11,10 +11,13 @@
       class="container">
       <div class="columns is-multiline px-3">
         <div class="column is-12 has-text-centered">
-          component : <code>TestBuefyBool</code>
+          <componentTitle
+            :title="title"
+            :inject="injectCss"
+            :css="'mr-2'"/>
         </div>
         <div class="column is-3">
-          title : <code>{{ title }}</code>
+          <componentName :name="$options.name"/>
         </div>
         <div class="column is-3">
           <span class="bg-colored">
@@ -44,6 +47,8 @@ import { mixinGlobal } from '@/mixins/global.js'
 export default {
   name: 'TestBuefyBool',
   components: {
+    componentTitle: () => import(/* webpackChunkName: "componentTitle" */ '@/components/nested/componentTitle.vue'),
+    componentName: () => import(/* webpackChunkName: "componentName" */ '@/components/nested/componentName.vue'),
     nestedComponent: () => import(/* webpackChunkName: "nestedComponent" */ '@/components/nested/nestedComponent.vue')
   },
   mixins: [mixinGlobal],
@@ -51,6 +56,10 @@ export default {
     title: {
       default: 'test',
       type: String
+    },
+    injectCss: {
+      default: true,
+      type: Boolean
     }
   },
   computed: {

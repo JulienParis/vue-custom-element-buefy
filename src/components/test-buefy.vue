@@ -11,13 +11,13 @@
       class="container">
       <div class="columns is-multiline px-3">
         <div class="column is-12 has-text-centered">
-          component : <code>TestBuefy</code>
+          <componentTitle
+            :title="title"
+            :inject="injectCss"
+            :css="'bg-colored mr-2'"/>
         </div>
         <div class="column is-4">
-          <span class="bg-colored">
-            title :
-          </span>
-          <code>{{ title }}</code>
+          <componentName :name="$options.name"/>
         </div>
         <div class="column is-4">
           <b-button
@@ -37,38 +37,46 @@
 
 <script>
 
-import { mapActions } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 import { mixinGlobal } from '@/mixins/global.js'
 
 export default {
   name: 'TestBuefy',
+  components: {
+    componentTitle: () => import(/* webpackChunkName: "componentTitle" */ '@/components/nested/componentTitle.vue'),
+    componentName: () => import(/* webpackChunkName: "componentName" */ '@/components/nested/componentName.vue')
+  },
   mixins: [mixinGlobal],
   props: {
     title: {
       default: 'test',
       type: String
+    },
+    injectCss: {
+      default: true,
+      type: Boolean
     }
   },
   data () {
     return {
-      bool: false,
       customCssFile: 'styles/custom-css.css'
     }
   },
-  mounted () {
-    console.log('\nTestBuefy > beforeCreate ...')
-    this.addStyle(this.customCssFile)
+  computed: {
+    ...mapState({
+      bool: state => state.boolean
+    })
   },
-  beforeMount () {
-    this.toggleBool()
+  mounted () {
+    console.log('\nTestBuefy > mounted ...')
+    this.addStyle(this.customCssFile)
   },
   methods: {
     ...mapActions({
-      setBool: 'setBool'
+      changeBool: 'changeBool'
     }),
     toggleBool () {
-      this.bool = !this.bool
-      this.setBool(this.bool)
+      this.changeBool(this.bool)
     }
   }
 }

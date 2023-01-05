@@ -17,11 +17,38 @@
     <!-- <div id="app"></div> -->
 
     <!-- WIDGET'S HTML BLOCKS -->
-    <div style="background-color: white; margin: 3em;">
-      <test-buefy title="Let us test vue-custom-element with Buefy"/>
-    </div>
-    <div style="background-color: white; margin: 3em;">
-      <test-buefy-bool title="Another custom element"/>
+    <div style="color: black; margin: 3em;">
+      <p># WIDGET A1 (test-buefy-no-shadow) - NO SHADOW - NO CSS INJECTION</p>
+      <div style="background-color: white; margin-bottom: 2em;">
+        <test-buefy-no-shadow title="NO SHADOW MODE - NO CSS INJECTION" inject-css=false />
+      </div>
+      <p># WIDGET B2 (test-buefy-boolean-no-css) - NO SHADOW - NO CSS INJECTION</p>
+      <div style="background-color: white; margin-bottom: 2em;">
+        <test-buefy-bool-no-shadow title="NO SHADOW MODE - NO CSS INJECTION" inject-css=false />
+      </div>
+
+      <hr style="margin: 3em 0em 3em 0em;">
+
+      <p># WIDGET B1 (test-buefy-no-css) - SHADOW MODE - NO CSS INJECTION</p>
+      <div style="background-color: white; margin-bottom: 2em;">
+        <test-buefy-no-css title="SHADOW MODE - NO CSS INJECTION" inject-css=false />
+      </div>
+      <p># WIDGET B2 (test-buefy-boolean-no-css) - SHADOW MODE - NO CSS INJECTION</p>
+      <div style="background-color: white; margin-bottom: 2em;">
+        <test-buefy-bool-no-css title="SHADOW MODE - NO CSS INJECTION" inject-css=false />
+      </div>
+      
+      <hr style="margin: 3em 0em 3em 0em;">
+
+      <p># WIDGET C1 (test-buefy) - SHADOW MODE - CSS INJECTION</p>
+      <div style="background-color: white; margin-bottom: 2em;">
+        <test-buefy title="SHADOW MODE - CSS INJECTION"/>
+      </div>
+
+      <p># WIDGET C2 (test-buefy-bool) - SHADOW MODE - CSS INJECTION</p>
+      <div style="background-color: white; margin-bottom: 2em;">
+        <test-buefy-bool title="SHADOW MODE - CSS INJECTION"/>
+      </div>
     </div>
   </body>
 
