@@ -29,7 +29,11 @@ In shadow mode the `scoped` styles usually used in Vue are useless : those style
 
 ---
 
-## Screenshot
+## Running app
+
+URL : https://test-vue-custom-element-with-buefy.netlify.app
+
+### Screenshot
 
 ![screenshot](images/screenshot.png)
 
