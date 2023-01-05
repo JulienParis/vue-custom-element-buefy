@@ -43,7 +43,7 @@ To serve these fonts we need to copy the installed fonts from `./node_modules/@m
 To automatize this operation we added a command at the beginning of the `serve` script :
 
 ```json
-// package.json
+// From './package.json'
 
 {
   ...
