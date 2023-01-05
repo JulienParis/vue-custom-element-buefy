@@ -1,5 +1,6 @@
 <template>
   <div class="widget-wrapper">
+    <!-- DEPRECATED -->
     <!-- <link
       rel="stylesheet"
       href="https://unpkg.com/buefy/dist/buefy.min.css"> -->
