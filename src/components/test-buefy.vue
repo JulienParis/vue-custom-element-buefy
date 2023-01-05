@@ -22,7 +22,7 @@
         <div class="column is-4">
           <b-button
             expanded
-            icon-left="cursor-default-click-outline"
+            :icon-left="`cursor-default-click${bool ? '-outline' : ''}`"
             @click="toggleBool">
             Toogle bool value
           </b-button>
